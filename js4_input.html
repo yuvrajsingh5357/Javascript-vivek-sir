@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var reply = prompt("Enter some text here");
+        if (reply == null || reply == "") {
+            console.error(`user cancelled the prompt`);
+        } else {
+            console.log(`user entered ${reply}`);
+        }
+        var num = prompt("Enter a number", "4546"); // Prompt with default value
+
+        num = parseInt(num); // parseFloat 
+        if (isNaN(num)) {
+            console.error(`Invalid number`);
+        } else {
+            console.log(`You entered ${num}`);
+        }
+
+        var yesNo = confirm("Are you sure?");
+        if (yesNo) {
+            console.log("Yes");
+        } else {
+            console.log("No");
+        }
+
+        /*
+        Variables naming conventions
+        1) camelCase
+        2) Use underscores(_) instead of spaces
+        3) Do not use special characters other than _ and $
+        4) Variable name should not begin with a number or special character 
+        except _ and $.
+        */
+    </script>
+</body>
+
+</html>
