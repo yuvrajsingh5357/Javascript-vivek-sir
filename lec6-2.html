@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class in JavaScript</title>
+</head>
+<body>
+    <script>
+        var person = {
+            name : "Yuvraj",
+            age : 20,
+            address:{
+                city:"Delhi",
+                state:"Delhi",
+                country: "India"
+            },
+
+            hobbies:["Chess", "Badminton", "Singing"]
+        };
+
+        // a constructor
+        // a fuction like this ic called an anonymus function
+
+        var employee = function(name = "",age = 0){
+            this.name = name;
+            this.age = age;
+            this.print = function(){
+                return `${this.name}(${this.age})`;
+            }
+        }
+
+        console.log(person);
+        console.log(person.name);
+        a = new employee("Amit",24);
+        console.log(a.print);
+        console.log(a);
+
+        class Rectangle{
+            constructor(length = 0, breadth = 0){
+                this.length = length;
+                this.breadth = breadth;
+            }
+            print(){
+                return `${this.length} ${this.breadth}`;
+            }
+        }
+
+        b = new Rectangle(4,5);
+        console.log(b.print());
+    </script>
+</body>
+</html>

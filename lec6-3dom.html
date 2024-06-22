@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model</title>
+</head>
+
+<body>
+    <h1 title="Hi there">Hello</h1>
+    <div>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <a href="something">Just a test</a>
+    </div>
+    <input type="text" value="Hi there">
+    <p></p>
+
+    <script>
+        //getElementById, getElementsByClassName, getElementsByTagName
+        var txt = document.querySelector("h1").innerText;
+        console.log(txt);
+        txt = document.querySelector("div").innerText;
+        console.log(txt);
+        var htmlTXT = document.querySelector("div").innerHTML;
+        console.log(htmlTXT);
+        var txtFromInput = document.querySelector("input").value;
+        // input, select, textarea
+        console.log(txtFromInput);
+
+        var newText = prompt("Enter new text");
+        document.querySelector("h1").innerText = newText;
+        document.querySelector("input").value = newText;
+        document.querySelector("div").innerText = "<b>" + newText + "</b>";
+        document.querySelector("p").innerHTML = "<b>" + newText + "</b>";
+
+    </script>
+</body>
+
+</html>

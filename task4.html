@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var email = prompt("Enter your email ");
+        if (email.includes("@") && email.includes(".") && (!email.includes(" ")) && (email.length>8)) {
+            console.log("Valid email");
+        } else {
+            console.log("Invalid email");
+        }
+    </script>
+</body>
+
+</html> 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On Click</title>
+</head>
+<body>
+    <select name="ddType" id="ddType">
+        <option value="disc" selected>Disc</option>
+        <option value="square" >Square</option>
+        <option value="circle" >circle</option>
+    </select>
+    <ul class="disc" id="myList">
+        <li>Item 001</li>
+        <li>Item 002</li>
+        <li>Item 003</li>
+        <li>Item 004</li>
+        <li>Item 005</li>
+    </ul>
+    <button id="btnChange" onclick="changeList()">Change</button>
+    <button id="btnShow" onclick="showType()">Show the Type</button>
+    <h3 id="msg"></h3>
+    <script>
+        var dropDown = document.querySelector("#ddType");
+        var lst = document.querySelector("#myList");
+        function changeList(){
+            var currentType = ddType.value;
+            lst.setAttribute("type",currentType);
+        }
+        function showType(){
+            document.querySelector("#msg").innerText = lst.getAttribute("type");
+        }
+    </script>
+</body>
+</html>

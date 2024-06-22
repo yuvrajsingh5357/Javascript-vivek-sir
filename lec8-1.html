@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+    <input type="text" onchange="countTheLetters('onChange')" id="myInp" onkeydown="countTheLetters('onKeyDown')" onkeypress="countTheLetters('onKeyPress')" onkeyup="countTheLetters('onkeyup')">
+    <script>
+        function countTheLetters(evText){
+            console.log(evText + " " +document.querySelector("#myInp").value.length);
+        }
+    </script>
+
+</body>
+</html>

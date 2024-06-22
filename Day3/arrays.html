@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var fruits = [];
+        // empty array
+        var fruits = ["Apple", "Mango", "Guava"];
+        // console.log(fruits); // directly print
+        // console.log(fruits[0]);
+
+        fruits.reverse();
+        // console.log(fruits);
+        // console.log(fruits.toString()); // Print a String representation of the array
+
+        // console.log(`Length of the array is ${fruits.length}`);
+        fruits.push("Orange");
+        // console.log(fruits);
+        fruits.push("Banana", "Watermelon", "Kiwi");
+        fruits.sort()
+
+        // inset a fruit between kiwi and mango
+        //kiwi is at 3, mango at 4
+        fruits.splice(4, 0, "Pinapple", "Cherry");
+        // console.log(fruits.toString());
+
+        //delete two fruits starting from Banana = 1
+        fruits.splice(1, 2);
+        // console.log(fruits.toString())
+
+        //remove mango = 4, add two fruits : DragonFruit, Litchi
+        fruits.splice(4, 1, "DragonFruit", "Litchi");
+        // console.log(fruits.toString())
+        // splice(start, deleteCount,item1,item2,...)
+
+
+        // ++++++++++++++++++++++++++++++++++++++ task +++++++++++++++++
+        // using loops insert 5 numbers in an array from the user
+        // and print the array in reverse order
+        // and printf the array in reverse order
+        var numbers = [];
+        var sum = 0;
+        for (var i = 0; i < 5; i++) {
+            var num = parseInt(prompt("Enter a number"));
+            numbers.push(num);
+            sum += num;
+        }
+        numbers.reverse();
+        console.log(numbers.toString());
+        console.log(`Sum of array is ${sum}`);
+        prompt("Hello");
+    </script>
+</body>
+
+</html>

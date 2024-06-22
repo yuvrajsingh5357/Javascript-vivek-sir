@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lec9-1.css">
+</head>
+
+<body>
+    <div class="container">
+        <p><label for="">Enter your name</label></p>
+        <input type="text" class="std-check" data-std-required="true" data-std-min-length="5" data-std-max-length="10"
+            data-std-friendlyName="Name">
+            <p id="name"></p>
+    </div>
+    <div class="container">
+        <p><label for="">Enter email</label></p>
+        <input type="email" class="std-check" data-std-required="true" data-std-min-length="10" data-std-max-length="30"
+            data-std-friendlyName="Primary Email">
+            <p id="email">-</p>
+    </div>
+    <div class="container">
+        <button id="btnSubmit">Submit</button>
+    </div>
+    <script src="lec9-1.js"></script>
+</body>
+
+</html>
+<!-- Print proper error messages - user friendly messages 
+create a data-std-range attruibute, which only applies to input type number
+Ex: 45-100 (number must be between 45 and 100
+data-std-min-range data-std-max-range )-->
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        r = Math.random();
+        console.log(r);
+        console.log("Random number from 1 to 100 :", r*100);
+        console.log("Random number from 1 to 100 :", Math.floor(r*100));
+        console.log("Random number from 26 to 40 :", Math.floor(r*15)+26);
+
+        //default values
+        function getRandomBetween(min = 0,max = 100){
+            if(max <= min){
+                return NaN;
+            }
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+        console.log(getRandomBetween(45,86));
+    </script>
+</body>
+</html>

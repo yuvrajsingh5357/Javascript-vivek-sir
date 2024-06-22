@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var fruits = [];
+        // empty array
+        var fruits = ["Apple", "Mango", "Guava"];
+        console.log(fruits); // directly print
+        console.log(fruits[0]);
+
+        fruits.reverse();
+        console.log(fruits);
+        console.log(fruits.toString()); // Print a String representation of the array
+
+        console.log(`Length of the array is ${fruits.length}`);
+        fruits.push("Orange");
+        console.log(fruits);
+        fruits.push("Banana","Watermelon","Kiwi");
+        fruits.sort()
+
+        console.log(fruits);
+
+        var idx = fruits.indexOf("Kiwi");
+        if(idx != -1){
+            console.log(`Found at position ${idx}`);
+        }
+        else{
+            console.log("Not found");
+        }
+    </script>
+</body>
+</html>

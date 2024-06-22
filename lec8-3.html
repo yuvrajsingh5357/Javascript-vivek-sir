@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        input{
+            padding: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            border-radius: 5px;
+        }
+        p{
+            font-family: Consolas;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+    <h3>Enter your name</h3>
+    <input type="text" id="myInp" onkeydown="checkNumbers(event)" onkeyup="checkLength(event)">
+    <p id="msg"></p>
+    <script>
+        var myInp = document.querySelector("#myInp");
+        var msg = document.querySelector("#msg");
+        function checkNumbers(event){
+            msg.innerText = "";
+            if(event.key >= '0' && event.key <= '9'){
+            //preventDefault : Cancels the event
+            event.preventDefault();
+            msg.style.color = "red";
+            msg.innerText = "Only Alphabets Allowed";
+            return;
+            }
+        }
+        function checkLength(event){
+            if(myInp.value.length < 2){
+                msg.style.color = "red";
+                msg.innerText = "Name should be atleast 2 characters";
+                return;
+            }
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Traversal and DOM manipulation</title>
+    <style>
+        ul,li,b{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: 0.5px;
+        }
+        .container{
+            max-width: 300px;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            border:1px solid black;
+            border-radius: 10px;
+        }
+        .selected{
+            border-radius: 5px;
+            padding:2px 10px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Shopping List</h3>
+        <ul id="myList">
+            <li>
+                <b>Fruits</b>
+                <ul>
+                    <li>Apple</li>
+                    <li>Orange</li>
+                    <li>Banana</li>
+                </ul>
+            </li>
+            <li>
+                <b>Vegetables</b>
+                <ul>
+                    <li>Carrot</li>
+                    <li class="selected">Potato</li>
+                    <li>Broccoli</li>
+                </ul>
+            </li>
+            <li>
+                <b>Stationary Items</b>
+                <ul>
+                    <li>Pen</li>
+                    <li>Pencil</li>
+                    <li>Eraser</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <button id="btnParent">Parent</button>
+    <button id="btnFirstChild">FirstChild</button>
+    <button id="btnLastChild">LastChild</button>
+    <button id="btnNextElementSibling">Next Element Sibling</button>
+    <button id="btnPrevElemenSibling">Prev Element Sibling</button>
+
+    <script src="lec10.1.js"></script>
+</body>
+</html>

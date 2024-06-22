@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM nodes</title>
+</head>
+<body>
+    <div id="mycontainer">
+        <p>paragraph 01</p>
+        <!-- Elements, nodes -->
+        <p>paragraph 02</p>
+    </div>
+    <!-- MyContainer -> child elements - 2 paragraphs
+        MyContainer -> child Nodes -> 7 nodes -->
+    <script>
+        var nodes = document.querySelector('#mycontainer').childNodes;
+
+        for(var i = 0; i < nodes.length; i++){
+            console.log(nodes[i], nodes[i].nodeType);
+
+            switch(nodes[i].nodeType){
+                case Node.ELEMENT_NODE:
+                    console.log("Element");
+                    break;
+                case Node.TEXT_NODE:
+                    console.log("Text");
+                    break;
+                case Node.COMMENT_NODE:
+                    console.log("Comment");
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

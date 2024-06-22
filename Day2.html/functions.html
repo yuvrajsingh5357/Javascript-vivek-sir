@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function greet() {
+            console.log("Hello");
+        }
+        greet();
+        function add(a, b) {
+            if (a === undefined || b === undefined) {
+                console.error("Invalid input");
+                return;
+            }
+            a = parseFloat(a);
+            b = parseFloat(b);
+            if (isNaN(a) || isNaN(b)) {
+                console.log("One of more values are not numbers");
+                return;
+            }
+            console.log(a+b);
+        }
+
+        greet();
+        add(45,56);
+        add();
+        add(45);
+        add("435", "lksjdslf");
+    </script>
+</body>
+
+</html>
