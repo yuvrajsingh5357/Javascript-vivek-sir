@@ -12,7 +12,7 @@
             box-sizing: border-box;
             width: 90%;
             margin-left: 5%;
-            transition: 0.5s;
+            transition: 2s;
         }
 
         .slidermain .sliderimage {
@@ -50,12 +50,28 @@
             var allImages = document.querySelectorAll(".sliderimage");
             var currentImage = -1;
 
-            function nextImage() {
-                if (currentImage >= allImages.length) {
-                    currentImage = 0;
+            // function nextImage() {
+            //     if (currentImage >= allImages.length-1) {
+            //         currentImage = 0;
+            //     } else {
+            //         currentImage++;
+            //     }
+            //     console.log(currentImage);
+            //     allImages.forEach(function (ele, index) {
+            //         if (index == currentImage) {
+            //             ele.style.opacity = 1;
+            //         } else {
+            //             ele.style.opacity = 0;
+            //         }
+            //     });
+            // }
+            function previousImage() {
+                if (currentImage <= 0) {
+                    currentImage = allImages.length-1;
                 } else {
-                    currentImage++;
+                    currentImage--;
                 }
+                console.log(currentImage);
                 allImages.forEach(function (ele, index) {
                     if (index == currentImage) {
                         ele.style.opacity = 1;
@@ -65,7 +81,7 @@
                 });
             }
 
-            anim = setInterval(nextImage, 2000);
+            anim = setInterval(previousImage, 2000);
         }
     </script>
 </body>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        .slidermain {
+            position: relative;
+            border: 3px solid black;
+            box-sizing: border-box;
+            width: 90%;
+            margin-left: 5%;
+            transition: 0.5s;
+            overflow: hidden;
+        }
+
+        .slidermain .sliderimage {
+            width: 100%;
+            height: 500px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .sliderimagefix {
+            height: 500px;
+            width: 100%;
+            opacity: 0;
+        }
+
+        .slider-buttons {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-buttons .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+            width: 60px;
+            font-size: 30px;
+            border: none;
+            outline: none;
+            border-radius: 50%;
+        }
+
+        .slider-buttons .left {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            transition: 0.7s;
+            transform: translate(-100%, 0);
+        }
+
+        .slider-buttons .right {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            transition: 0.7s;
+            transform: translate(100%, 0);
+        }
+
+        .slider-buttons .mid {
+            transition: 0.7s;
+            transform: translate(0, 100%);
+            opacity: 0;
+        }
+
+        .slidermain:hover .left {
+            transform: translate(0, 0);
+        }
+
+        .slidermain:hover .right {
+            transform: translate(0, 0);
+        }
+
+        .slidermain:hover .mid {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slidermain">
+        <div class="sliderimage" style="background-image: url('pexels-kelly-1179532-2876511.jpg');"></div>
+        <div class="sliderimage" style="background-image: url('pexels-lureofadventure-15250205.jpg');"></div>
+        <div class="sliderimage" style="background-image: url('pexels-rickyrecap-3042415.jpg');"></div>
+        <div class="sliderimage" style="background-image: url('pexels-theplanetspeaks-10640628.jpg');"></div>
+        <div class="sliderimage" style="background-image: url('pexels-valeriiamiller-10911941.jpg');"></div>
+        <div class="sliderimagefix" style="background-image: url('pexels-valeriiamiller-10911941.jpg');"></div>
+        <div class="slider-buttons">
+            <button class="btn left">&lt;</button>
+            <button class="btn mid">&#10074;&#10074;</button>
+            <button class="btn right">&gt;</button>
+        </div>
+    </div>
+    <h1>Slider Demo</h1>
+    <!-- &#9654; -->
+    <script>
+        var anim;
+        window.onload = function () {
+            var allImages = document.querySelectorAll(".sliderimage");
+            var currentImage = -1;
+            let midBtn = document.querySelector('.slider-buttons .mid');
+
+            document.querySelector('.slider-buttons .left').addEventListener('click', () => {
+                if (anim !== null) {
+                    clearInterval(anim);
+                    midBtn.innerHTML = '&#9654;';
+                }
+                previousImage();
+            });
+            document.querySelector('.slider-buttons .right').addEventListener('click', () => {
+                if (anim !== null) {
+                    clearInterval(anim);
+                    anim = null;
+                    midBtn.innerHTML = '&#9654;';
+                }
+                nextImage();
+            });
+
+            midBtn.addEventListener('click', () => {
+                if(anim === null){
+                    anim = setInterval(nextImage, 2000);
+                    midBtn.innerHTML = '&#10074;&#10074;';
+
+                }else{
+                    clearInterval(anim);
+                    anim = null;
+                    midBtn.innerHTML = '&#9654;';
+                }
+            });
+
+            function nextImage() {
+                if (currentImage >= allImages.length - 1) {
+                    currentImage = 0;
+                } else {
+                    currentImage++;
+                }
+                console.log(currentImage);
+                allImages.forEach(function (ele, index) {
+                    if (index == currentImage) {
+                        ele.style.opacity = 1;
+                    } else {
+                        ele.style.opacity = 0;
+                    }
+                });
+            }
+            function previousImage() {
+                if (currentImage <= 0) {
+                    currentImage = allImages.length - 1;
+                } else {
+                    currentImage--;
+                }
+                console.log(currentImage);
+                allImages.forEach(function (ele, index) {
+                    if (index == currentImage) {
+                        ele.style.opacity = 1;
+                    } else {
+                        ele.style.opacity = 0;
+                    }
+                });
+            }
+
+            anim = setInterval(nextImage, 2000);
+        }
+    </script>
+</body>
+
+</html>
