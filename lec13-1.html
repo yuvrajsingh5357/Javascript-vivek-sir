@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Add</title>
+    <style>
+        .custom-menu{
+            display:none;
+            position: absolute;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+        }
+        .custom-menu ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        .custom-menu li{
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        .custom-menu li:hover{
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="custom-menu">
+        <li value="insAfter" id="liAfter">Insert At the top of the list</li>
+        <li value="insBefore" id="liBefore">Insert At the bottom of the list</li>
+    </div>
+    <h3>Add an item to the list</h3>
+    <input type="text" id="myInp">
+    <button id="btnAdd">Add</button>
+    <button id="btnDelete">Delete</button>
+    <hr>
+    <h2>Sample List</h2>
+    <ul id="myList">
+
+    </ul>
+    <script>
+        var inp = document.querySelector("#myInp");
+        var btn = document.querySelector("#btnAdd");
+        var lst = document.querySelector("#myList");
+        var btnDel = document.querySelector("#btnDelete");
+        var cm = document.querySelector('.custom-menu');
+        btn.addEventListener("click", function () {
+            var li = document.createElement("li");
+            li.innerText = inp.value;
+            li.addEventListener('dblclick',function(){
+                var newData = prompt("Enter new value", this.innerText);
+                this.innerText = newData;
+            })
+            lst.appendChild(li);
+            inp.value = "";
+        })
+        btnDel.addEventListener("click", function(){
+            Array.from(lst.children).forEach(function(ele){
+                if(ele.innerText == inp.value){
+                    lst.removeChild(ele);
+                    inp.value = "";
+                }
+            })
+        })
+        lst.addEventListener('contextmenu',function(e){
+            e.preventDefault();
+            var selectedItem = e.target;
+            cm.style.display = "block";
+            cm.style.left = e.pageX + "px";
+            cm.style.top = e.pageY + "px";
+        });
+        document.addEventListener('click',function(){
+            cm.style.display = 'none';
+        });
+        document.querySelector('#liAfter').addEventListener('click',function(){
+            var li = document.createElement("li");
+            var newValue = prompt("Enter new value");
+            li.addEventListener('dblclick',function(){
+                var newData = prompt("Enter new value", this.innerText);
+                this.innerText = newData;
+            })
+            li.innerText = newValue;
+            lst.insertAdjacentElement('afterbegin',li);
+        });
+        document.querySelector('#liBefore').addEventListener('click',function(){
+            var li = document.createElement("li");
+            var newValue = prompt("Enter new value");
+            li.addEventListener('dblclick',function(){
+                var newData = prompt("Enter new value", this.innerText);
+                this.innerText = newData;
+            })
+            li.innerText = newValue;
+            lst.insertAdjacentElement('beforeend',li);
+        });
+    </script>
+</body>
+</html>

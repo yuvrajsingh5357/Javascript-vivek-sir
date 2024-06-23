@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        .slidermain {
+            position: relative;
+            border: 3px solid black;
+            box-sizing: border-box;
+            width: 90%;
+            margin-left: 5%;
+            transition: 0.5s;
+        }
+
+        .slidermain .sliderimage {
+            width: 100%;
+            height: 500px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .sliderimagefix {
+            height: 500px;
+            width: 100%;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slidermain">
+        <div class="sliderimage" style="background-image: url('pexels-kelly-1179532-2876511.jpg');"></div>
+        <div class="sliderimage" style="background-image: url('pexels-lureofadventure-15250205.jpg');"></div>
+        <div class="sliderimage" style="background-image: url('pexels-rickyrecap-3042415.jpg');"></div>
+        <div class="sliderimage" style="background-image: url('pexels-theplanetspeaks-10640628.jpg');"></div>
+        <div class="sliderimage" style="background-image: url('pexels-valeriiamiller-10911941.jpg');"></div>
+        <div class="sliderimagefix" style="background-image: url('pexels-valeriiamiller-10911941.jpg');"></div>
+    </div>
+    <h1>Slider Demo</h1>
+    <script>
+        var anim;
+        window.onload = function () {
+            var allImages = document.querySelectorAll(".sliderimage");
+            var currentImage = -1;
+
+            function nextImage() {
+                if (currentImage >= allImages.length) {
+                    currentImage = 0;
+                } else {
+                    currentImage++;
+                }
+                allImages.forEach(function (ele, index) {
+                    if (index == currentImage) {
+                        ele.style.opacity = 1;
+                    } else {
+                        ele.style.opacity = 0;
+                    }
+                });
+            }
+
+            anim = setInterval(nextImage, 2000);
+        }
+    </script>
+</body>
+
+</html>
